@@ -33,7 +33,8 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
-    tags = models.ManyToManyField('Tag', blank=True, related_name='tasks')  # NEW
+    tags = models.ManyToManyField('Tag', blank=True, related_name='tasks')  
+    due_date = models.DateTimeField(null=True, blank=True)
     assignee = models.ForeignKey(User, null=True, blank=True, on_delete=models.PROTECT)
 
     def __str__(self):
