@@ -10,7 +10,7 @@ import random
 def populate_database():
     # Создание пользователей
     users = []
-    for i in range(5):
+    for i in range(10):
         user = User.objects.create_user(f'user{i}', f'user{i}@example.com', 'password')
         users.append(user)
 
@@ -21,7 +21,7 @@ def populate_database():
         tags.append(tag)
 
     # Создание проектов и файлов проектов
-    for i in range(3):
+    for i in range(8):
         project = Project.objects.create(
             name=f'Проект {i}',
             description=f'Описание проекта {i}'
@@ -42,7 +42,7 @@ def populate_database():
             project.file.add(project_file)
 
         # Создание задач для проекта
-        for k in range(5):
+        for k in range(8):
             task = Task.objects.create(
                 title=f'Задача {k} для проекта {i}',
                 description=f'Описание задачи {k} для проекта {i}',
